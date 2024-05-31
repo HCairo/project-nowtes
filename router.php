@@ -1,9 +1,12 @@
 <?php
 require_once('vendor/autoload.php');
+require_once('config.php');
+
 use Controllers\RegisterController;
 use Controllers\LoginController;
 use Controllers\AccountController;
-use Controllers\TasksController; // Add this line
+use Controllers\TasksController;
+use Controllers\BillingController;
 use App\Database;
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -11,7 +14,6 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $action = $_REQUEST['action'] ?? null;
-$taskId = $_REQUEST['taskId'] ?? null; // Add taskId retrieval
 
 switch($action) {
     default:
