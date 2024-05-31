@@ -3,6 +3,7 @@ require_once('vendor/autoload.php');
 use Controllers\RegisterController;
 use Controllers\LoginController;
 use Controllers\AccountController;
+use Controllers\TasksController; // Add this line
 use App\Database;
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -10,6 +11,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $action = $_REQUEST['action'] ?? null;
+$taskId = $_REQUEST['taskId'] ?? null; // Add taskId retrieval
 
 switch($action) {
     default:
@@ -27,7 +29,35 @@ switch($action) {
             header('Location: login');
             exit();
         } else {
-            echo 'Tasks';
+            $tasksController = new TasksController();
+            $tasksController->listTasks();
+        }
+        break;
+    case 'addTask':
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: login');
+            exit();
+        } else {
+            $tasksController = new TasksController();
+            $tasksController->addTask();
+        }
+        break;
+    case 'updateTask':
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: login');
+            exit();
+        } else {
+            $tasksController = new TasksController();
+            $tasksController->updateTask($taskId);
+        }
+        break;
+    case 'deleteTask':
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: login');
+            exit();
+        } else {
+            $tasksController = new TasksController();
+            $tasksController->deleteTask($taskId);
         }
         break;
     case 'notes':

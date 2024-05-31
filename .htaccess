@@ -1,17 +1,25 @@
 RewriteEngine On
-# Ligne pour éviter la réécriture si un fichier ou un dossier existe avec ce nom
+
+# Avoid rewriting if a file or directory exists with the same name
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# Redirection pour l'accès à 'tasks'
+# Redirect to 'tasks' action
 RewriteRule ^tasks$ index.php?action=tasks [L,QSA]
-# Redirection pour l'accès à 'notes'
+# Redirect to 'addTask' action
+RewriteRule ^tasks/add$ index.php?action=addTask [L,QSA]
+# Redirect to 'updateTask' action
+RewriteRule ^tasks/update/([0-9]+)$ index.php?action=updateTask&taskId=$1 [L,QSA]
+# Redirect to 'deleteTask' action
+RewriteRule ^tasks/delete/([0-9]+)$ index.php?action=deleteTask&taskId=$1 [L,QSA]
+
+# Redirect to 'notes' action
 RewriteRule ^notes$ index.php?action=notes [L,QSA]
-# Redirection pour l'accès à 'account'
+# Redirect to 'account' action
 RewriteRule ^account$ index.php?action=account [L,QSA]
-# Redirection pour l'accès à 'billing'
+# Redirect to 'billing' action
 RewriteRule ^billing$ index.php?action=billing [L,QSA]
-# Redirection pour l'accès à 'register'
+# Redirect to 'register' action
 RewriteRule ^register$ index.php?action=register [L,QSA]
-# Redirection pour l'accès à 'login'
+# Redirect to 'login' action
 RewriteRule ^login$ index.php?action=login [L,QSA]
