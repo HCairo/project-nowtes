@@ -13,9 +13,9 @@ class RegisterModel {
     public function createUser() {
         $username = $_POST['username'];
         $mail = $_POST['mail'];
-        $pswd = password_hash($_POST['pswd'], PASSWORD_BCRYPT); // Hash the password
+        $pswd = password_hash($_POST['pswd'], PASSWORD_ARGON2I);
         $last = date("Y-m-d H:i:s");
-        $active = 1;
+        $active = 1;        
 
         try {
             $pdo = $this->db->getConnection()->prepare("INSERT INTO user (username, mail, pswd, last_maj, active) VALUES (?, ?, ?, ?, ?)");

@@ -33,33 +33,6 @@ switch($action) {
             $tasksController->listTasks();
         }
         break;
-    case 'addTask':
-        if (!isset($_SESSION['user_id'])) {
-            header('Location: login');
-            exit();
-        } else {
-            $tasksController = new TasksController();
-            $tasksController->addTask();
-        }
-        break;
-    case 'updateTask':
-        if (!isset($_SESSION['user_id'])) {
-            header('Location: login');
-            exit();
-        } else {
-            $tasksController = new TasksController();
-            $tasksController->updateTask($taskId);
-        }
-        break;
-    case 'deleteTask':
-        if (!isset($_SESSION['user_id'])) {
-            header('Location: login');
-            exit();
-        } else {
-            $tasksController = new TasksController();
-            $tasksController->deleteTask($taskId);
-        }
-        break;
     case 'notes':
         echo 'Petite note';
         break;

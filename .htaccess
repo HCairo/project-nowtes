@@ -6,13 +6,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # Redirect to 'tasks' action
 RewriteRule ^tasks$ index.php?action=tasks [L,QSA]
-# Redirect to 'addTask' action
-RewriteRule ^tasks/add$ index.php?action=addTask [L,QSA]
-# Redirect to 'updateTask' action
-RewriteRule ^tasks/update/([0-9]+)$ index.php?action=updateTask&taskId=$1 [L,QSA]
-# Redirect to 'deleteTask' action
-RewriteRule ^tasks/delete/([0-9]+)$ index.php?action=deleteTask&taskId=$1 [L,QSA]
-
 # Redirect to 'notes' action
 RewriteRule ^notes$ index.php?action=notes [L,QSA]
 # Redirect to 'account' action

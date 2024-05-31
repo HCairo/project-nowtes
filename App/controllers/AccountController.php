@@ -33,14 +33,12 @@ class AccountController {
             if (!empty($data['old_password']) && !empty($data['new_password']) && !empty($data['confirm_password'])) {
                 if ($this->accountModel->verifyPassword($userId, $data['old_password'])) {
                     if ($data['new_password'] === $data['confirm_password']) {
-                        $hashedPassword = password_hash($data['new_password'], PASSWORD_DEFAULT);
+                        $hashedPassword = password_hash($data['new_password'], PASSWORD_ARGON2I);
                         $this->accountModel->updatePassword($userId, $hashedPassword);
                     } else {
-                        // New passwords don't match
                         echo "New passwords don't match.";
                     }
                 } else {
-                    // Old password incorrect
                     echo "Old password incorrect.";
                 }
             }
