@@ -17,8 +17,5 @@
             "name": "HCairo",
             "email": "hugo.cairoh@gmail.com"
         }
-    ],
-    "require": {
-        "stripe/stripe-php": "^14.9"
-    }
+    ]
 }
