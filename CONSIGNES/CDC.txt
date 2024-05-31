@@ -1,0 +1,88 @@
+Cahier des Charges - Application TODOLIST / Prise de notes
+1. Introduction
+
+L'objectif de ce document est de définir les spécifications fonctionnelles et techniques de l'application TODOLIST / Prise de notes. Cette application permettra aux utilisateurs de gérer leurs tâches et de prendre des notes de manière efficace et organisée.
+2. Objectifs du Projet
+
+Le principal objectif du projet est de développer une application web fonctionnelle et conviviale qui offre les fonctionnalités suivantes :
+
+    Interface de connexion et d'inscription sécurisée.
+    Gestion des abonnements avec Stripe.
+    Gestion des tâches avec catégorisation et fonctionnalités CRUD.
+    Prise de notes accessible sans connexion.
+    Interface de compte pour la gestion des informations personnelles.
+
+3. Spécifications Fonctionnelles
+3.1 Interface de Connexion et d'Inscription
+
+    Les utilisateurs peuvent créer un compte en fournissant un nom d'utilisateur, une adresse e-mail et un mot de passe.
+    L'authentification se fait via une session sécurisée.
+    Les utilisateurs peuvent également se connecter via leur compte Google, Apple ou Twitter.
+
+3.2 Gestion des Abonnements
+
+    Intégration de Stripe pour la gestion des abonnements.
+    Offres d'abonnement : Free, Pro, Business, avec des fonctionnalités supplémentaires pour les abonnements payants.
+    Les utilisateurs peuvent mettre à niveau ou annuler leur abonnement à tout moment.
+
+3.3 Gestion des Tâches
+
+    Les utilisateurs peuvent ajouter, modifier et supprimer des tâches.
+    Les tâches peuvent être catégorisées à l'aide d'un système de couleurs.
+    Utilisation du modèle MVC pour gérer la fonctionnalité d'ajout de tâches.
+
+3.4 Prise de Notes
+
+    Interface de prise de notes accessible sans connexion.
+    Les notes peuvent être sauvegardées localement via le local storage du navigateur ou temporairement en base de données pour les utilisateurs connectés.
+
+3.5 Interface de Compte
+
+    Les utilisateurs peuvent modifier leurs informations de compte, telles que le nom d'utilisateur, l'adresse e-mail et le mot de passe.
+    Utilisation du modèle MVC pour gérer les modifications de compte.
+
+3.6 Design et Interactivité
+
+    Utilisation de SCSS pour le style CSS afin de rendre l'application visuellement attrayante.
+    Utilisation de JavaScript pour ajouter de l'interactivité et rendre l'application dynamique.
+
+4. Spécifications Techniques
+4.1 Technologies Utilisées
+
+    PHP pour le développement backend.
+    JavaScript (Vanilla) pour le développement frontend.
+    MySQL pour la gestion de la base de données.
+    Stripe API pour la gestion des paiements.
+
+4.2 Architecture du Projet
+
+    Modèle MVC pour organiser le code de manière efficace et maintenable.
+    Utilisation de sessions PHP pour l'authentification des utilisateurs.
+
+5. Contraintes et Risques
+
+    Respect des normes de sécurité pour protéger les données des utilisateurs.
+    Risque de complexité lié à l'intégration de Stripe et à la gestion des abonnements.
+
+6. Plan de Développement
+
+Le développement de l'application se fera en plusieurs étapes :
+
+    Conception et Modélisation : Définition de la structure de la base de données et de l'architecture du projet.
+    Développement Backend : Création des modèles, contrôleurs et scripts PHP pour gérer la logique métier.
+    Développement Frontend : Implémentation des interfaces utilisateur en utilisant HTML, CSS (SCSS) et JavaScript.
+    Intégration de Stripe : Intégration du système de paiement pour gérer les abonnements.
+    Tests et Débogage : Test de l'application pour s'assurer du bon fonctionnement et correction des éventuels bogues.
+    Déploiement : Déploiement de l'application sur un serveur web et rendu accessible aux utilisateurs.
+
+7. Livrables
+
+    Code source de l'application avec documentation.
+    Application déployée et fonctionnelle sur un serveur web.
+
+8. Budget et Calendrier
+
+Le budget et le calendrier seront déterminés en fonction des ressources disponibles et des exigences du projet.
+Conclusion
+
+Ce cahier des charges définit les spécifications fonctionnelles et techniques de l'application TODOLIST / Prise de notes. Il servira de guide pour le développement de l'application et assurera la satisfaction des besoins des utilisateurs.
