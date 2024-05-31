@@ -1,6 +1,5 @@
 <?php
 require_once('vendor/autoload.php');
-require_once('.env/config.php');
 
 use Controllers\RegisterController;
 use Controllers\LoginController;

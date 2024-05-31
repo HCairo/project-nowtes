@@ -12,13 +12,13 @@ class LoginModel {
     }
 
     public function authenticate($mail, $password) {
-        $stmt = $this->db->prepare("SELECT * FROM user WHERE mail = :mail");
-        $stmt->bindParam(':mail', $mail); // Corrected parameter name
-        $stmt->execute();
-        $user = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $pdo = $this->db->prepare("SELECT * FROM user WHERE mail = :mail");
+        $pdo->bindParam(':mail', $mail);
+        $pdo->execute();
+        $user = $pdo->fetch(\PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['pswd'])) {
-            $_SESSION['user_id'] = $user['id']; // Set session variables after successful verification
+            $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             return true;
         } else {

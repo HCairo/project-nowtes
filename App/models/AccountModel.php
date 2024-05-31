@@ -14,25 +14,25 @@ class AccountModel {
     }
 
     public function getUserById($userId) {
-        $stmt = $this->db->prepare("SELECT * FROM user WHERE id = ?");
-        $stmt->execute([$userId]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $pdo = $this->db->prepare("SELECT * FROM user WHERE id = ?");
+        $pdo->execute([$userId]);
+        return $pdo->fetch(PDO::FETCH_ASSOC);
     }
 
     public function updateUser($userId, $username, $mail) {
-        $stmt = $this->db->prepare("UPDATE user SET username = ?, mail = ? WHERE id = ?");
-        return $stmt->execute([$username, $mail, $userId]);
+        $pdo = $this->db->prepare("UPDATE user SET username = ?, mail = ? WHERE id = ?");
+        return $pdo->execute([$username, $mail, $userId]);
     }
 
     public function verifyPassword($userId, $password) {
-        $stmt = $this->db->prepare("SELECT pswd FROM user WHERE id = ?");
-        $stmt->execute([$userId]);
-        $hash = $stmt->fetchColumn();
+        $pdo = $this->db->prepare("SELECT pswd FROM user WHERE id = ?");
+        $pdo->execute([$userId]);
+        $hash = $pdo->fetchColumn();
         return password_verify($password, $hash);
     }
 
     public function updatePassword($userId, $hashedPassword) {
-        $stmt = $this->db->prepare("UPDATE user SET pswd = ? WHERE id = ?");
-        return $stmt->execute([$hashedPassword, $userId]);
+        $pdo = $this->db->prepare("UPDATE user SET pswd = ? WHERE id = ?");
+        return $pdo->execute([$hashedPassword, $userId]);
     }
 }

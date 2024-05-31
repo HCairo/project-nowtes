@@ -12,8 +12,8 @@ class TasksModel {
 
     public function taskRetrieve() {
         $query = "SELECT * FROM task";
-        $stmt = $this->db->getConnection()->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $pdo = $this->db->getConnection()->prepare($query);
+        $pdo->execute();
+        return $pdo->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
