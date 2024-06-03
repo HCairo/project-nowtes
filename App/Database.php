@@ -9,8 +9,13 @@ class Database {
     protected $pw = '2807';
     
     public function __construct() {
-        $this->cnx = new \PDO("mysql:host=$this->host;dbname=$this->db", $this->login, $this->pw);
-        $this->cnx->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        try {
+            $this->cnx = new \PDO("mysql:host={$this->host};dbname={$this->db}", $this->login, $this->pw);
+            $this->cnx->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        } catch (\PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+            exit;
+        }
     }
 
     public function getConnection() {

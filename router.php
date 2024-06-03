@@ -38,8 +38,9 @@ switch($action) {
         echo 'Petite note';
         break;
     case 'billing':
-        $billingController = new BillingController();
-        $billingController->handleBilling();
+        // $billingController = new BillingController();
+        // $billingController->handleBilling();
+        echo 'Paye';
         break;
     case 'account':
         $accountController = new AccountController();

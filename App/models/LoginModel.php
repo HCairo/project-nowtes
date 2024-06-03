@@ -8,11 +8,10 @@ class LoginModel {
 
     public function __construct() {
         $database = new Database();
-        $this->db = $database->getConnection();
     }
 
     public function authenticate($mail, $password) {
-        $pdo = $this->db->prepare("SELECT * FROM user WHERE mail = :mail");
+        $pdo = $this->db->getConnection()->prepare("SELECT * FROM user WHERE mail = :mail");
         $pdo->bindParam(':mail', $mail);
         $pdo->execute();
         $user = $pdo->fetch(\PDO::FETCH_ASSOC);
