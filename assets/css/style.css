@@ -1,5 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+* {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
-  font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -18,6 +25,7 @@ header {
 header a {
   color: #E1EAF0;
   text-decoration: none;
+  font-weight: 600;
   margin: 0 15px;
   padding: 10px 20px;
   transition: background-color 0.3s ease;
@@ -165,4 +173,46 @@ account-container button:hover {
 
 .task-list-container tr:hover {
   background-color: #ddd;
+}
+
+.subscription-column {
+  width: 30.3333333333%;
+  display: inline-block;
+  margin-right: 3%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f4f4f4; /* Default background color */
+}
+
+.subscription-column:last-child {
+  margin-right: 0;
+}
+
+.subscription-column h2 {
+  text-align: center;
+  color: #333; /* Heading color */
+}
+
+.subscription-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.subscription-column ul li {
+  margin-bottom: 10px;
+  color: #555; /* List item color */
+}
+
+/* Define different background colors for each column */
+.free {
+  background-color: #ffcd4a; /* Yellow */
+}
+
+.pro {
+  background-color: #48dbfb; /* Blue */
+}
+
+.business {
+  background-color: #ff6b6b; /* Red */
 }/*# sourceMappingURL=style.css.map */

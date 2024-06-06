@@ -2,7 +2,6 @@
 namespace Models;
 
 use App\Database;
-use PDO;
 
 class AccountModel {
     
@@ -11,18 +10,18 @@ class AccountModel {
     public function __construct() {
         $this->db = new Database();
     }
-
+    // Recuperation des donnees de l'utilisateur
     public function getUserById($userId) {
         try {
             $pdo = $this->db->getConnection()->prepare("SELECT * FROM user WHERE id = ?");
             $pdo->execute([$userId]);
-            return $pdo->fetch(PDO::FETCH_ASSOC);
+            return $pdo->fetch(\PDO::FETCH_ASSOC);
         } catch (\PDOException $e) {
             echo 'Erreur: ' . $e->getMessage();
             return false;
         }
     }
-
+    // Recuperation des inputs pour modifier les informations dans la base de donnees
     public function updateUser($userId, $username, $mail) {
         try {
             $query = "UPDATE user SET username = :username";
@@ -50,6 +49,7 @@ class AccountModel {
         }
     }
 
+    // Fonction de verification du password -> si le password n'est pas celui entre en db la modification ne se lancera pas
     public function verifyPassword($userId, $password) {
         try {
             $pdo = $this->db->getConnection()->prepare("SELECT pswd FROM user WHERE id = ?");
@@ -61,7 +61,7 @@ class AccountModel {
             return false;
         }
     }
-
+    // Ici on modifie le mot de passe si la fonction ci-dessus est valide
     public function updatePassword($userId, $hashedPassword) {
         try {
             $pdo = $this->db->getConnection()->prepare("UPDATE user SET pswd = ? WHERE id = ?");

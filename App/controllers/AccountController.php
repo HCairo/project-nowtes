@@ -16,10 +16,11 @@ class AccountController {
         $this->accountModel = new AccountModel();
         $this->accountView = new AccountView();
     }
-
+    // Creation de la fonction de modification de compte
     public function modifyAccount() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userId = $_SESSION['user_id'];
+            // On englobe nos donnees dans un tableau $data pour simplifier le fonctionnement
             $data = [
                 'username' => $_POST['username'] ?? null,
                 'mail' => $_POST['mail'] ?? null,
