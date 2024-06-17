@@ -6,11 +6,12 @@ use App\Database;
 class RegisterModel {
     protected $db;
 
+    // Constructor to initialize the database connection
     public function __construct() {
         $this->db = new Database();
     }
 
-    // Méthode pour créer un nouvel utilisateur
+    // Method to create a new user
     public function createUser() {
         $username = $_POST['username'];
         $mail = $_POST['mail'];
@@ -29,16 +30,14 @@ class RegisterModel {
         }
     }
 
-    // Méthode pour créer ou mettre à jour un utilisateur Google
+    // Method to create or update a Google user
     public function googleUserAuth($userInfo) {
-        // Supposons que les informations de l'utilisateur contiennent un email et un nom
         $mail = $userInfo->email;
         $username = $userInfo->name;
         $last = date("Y-m-d H:i:s");
         $active = 1;
 
         try {
-            // Insertion ou mise à jour de l'utilisateur en fonction de l'email (clé unique)
             $pdo = $this->db->getConnection()->prepare("INSERT INTO user (username, mail, last_maj, active) VALUES (?, ?, ?, ?)
                 ON DUPLICATE KEY UPDATE last_maj = VALUES(last_maj)");
             $pdo->execute([$username, $mail, $last, $active]);
@@ -50,3 +49,4 @@ class RegisterModel {
         }
     }
 }
+?>
