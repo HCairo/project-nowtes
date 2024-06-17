@@ -10,13 +10,11 @@ class NotesModel {
         $this->db = new Database();
     }
 
-    // Method to save notes to a data store
-    public function saveNotes($notes) {
-        // Implement logic to save notes to local storage, database, or any other storage mechanism
+    public function saveNotes() {
+        
     }
 
-    // Method to retrieve notes from a data store
-    public function getNotes() {
-        // Implement logic to retrieve notes from local storage, database, or any other storage mechanism
+    public function displayNotes() {
+        
     }
 }

@@ -1,6 +1,7 @@
 <?php
 require_once('vendor/autoload.php');
 
+use Dotenv\Dotenv;
 use Controllers\RegisterController;
 use Controllers\LoginController;
 use Controllers\AccountController;
@@ -12,6 +13,8 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 $action = $_REQUEST['action'] ?? null;
 
 switch($action) {
@@ -50,10 +53,12 @@ switch($action) {
     
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $registerController->userSave();
+        } elseif (isset($_GET['action']) && $_GET['action'] === 'googleAuth') {
+            $registerController->googleAuth();
         } else {
             $registerController->registerForm();
         }
-        break;
+        break;        
     case 'login':
         $loginController = new LoginController();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

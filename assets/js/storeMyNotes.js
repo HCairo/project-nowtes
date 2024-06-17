@@ -1,25 +1,23 @@
-// Function to save notes to local storage
-function saveNotes() {
-    // Get the notes from the textarea
+function localSaveNotes() {
+    // Recuperation pour stockage de la note dans le localstorage
     let notes = document.getElementById('notes').value;
     
-    // Store the notes in local storage
+    // Stockage des notes dans le localstorage
     localStorage.setItem('notes', notes);
     
     alert('Notes saved successfully!');
 }
 
-// Function to retrieve notes from local storage
-function getNotes() {
-    // Retrieve the notes from local storage
+function getNotesFromLocal() {
+    // Recuperation des notes depuis localstorage
     let notes = localStorage.getItem('notes');
     
-    // Check if notes exist in local storage
+    // Check si les notes existent dans le localstorage
     if(notes) {
-        // Display the notes in the textarea
+        // Affichage des notes dans notre textarea
         document.getElementById('notes').value = notes;
     }
 }
 
-// Call getNotes function when the page loads
-window.onload = getNotes;
+// Appel de la fonction pour charger et display les notes au chargement de la page
+window.onload = getNotesFromLocal;

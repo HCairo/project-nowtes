@@ -17,5 +17,9 @@
             "name": "HCairo",
             "email": "hugo.cairoh@gmail.com"
         }
-    ]
+    ],
+    "require": {
+        "google/apiclient": "^2.16",
+        "vlucas/phpdotenv": "^5.6"
+    }
 }
