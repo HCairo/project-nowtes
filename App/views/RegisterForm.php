@@ -24,9 +24,5 @@ class RegisterForm {
             <h2>Connexion avec : </h2>
             <a href="?action=googleAuth" class="google">Google</a>
         </div>';
-        // Echo out environment variables for debugging
-        echo '<p>Google Client ID: ' . $_ENV['GOOGLE_CLIENT_ID'] . '</p>';
-        echo '<p>Google Client Secret: ' . $_ENV['GOOGLE_CLIENT_SECRET'] . '</p>';
-        echo '<p>Google Redirect URI: ' . $_ENV['GOOGLE_REDIRECT_URI'] . '</p>';
     }
 }

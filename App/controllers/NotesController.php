@@ -13,11 +13,19 @@ class NotesController {
         $this->notesView = new NotesView();
     }
 
-    public function savingNotes() {
-
+    public function savingNotes($note) {
+        $this->notesModel->saveNotes($note);
     }
 
     public function displayingNotes() {
+        $notes = $this->notesModel->displayNotes();
+        $this->notesView->renderNotes($notes);
+    }
 
+    public function displayFormAndNotes() {
+        // Display the form
+        $this->notesView->initForm();
+        // Display the notes
+        $this->displayingNotes();
     }
 }

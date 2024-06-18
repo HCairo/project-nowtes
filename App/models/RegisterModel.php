@@ -34,13 +34,14 @@ class RegisterModel {
     public function googleUserAuth($userInfo) {
         $mail = $userInfo->email;
         $username = $userInfo->name;
+        $bill = 1;
         $last = date("Y-m-d H:i:s");
         $active = 1;
 
         try {
             $pdo = $this->db->getConnection()->prepare("INSERT INTO user (username, mail, last_maj, active) VALUES (?, ?, ?, ?)
                 ON DUPLICATE KEY UPDATE last_maj = VALUES(last_maj)");
-            $pdo->execute([$username, $mail, $last, $active]);
+            $pdo->execute([$username, $mail, $bill, $last, $active]);
             echo "<h1>Utilisateur connecté avec succès</h1>";
             header('Location: ?action=login');
             exit();
@@ -49,4 +50,3 @@ class RegisterModel {
         }
     }
 }
-?>

@@ -7,6 +7,7 @@ use Controllers\LoginController;
 use Controllers\AccountController;
 use Controllers\TasksController;
 use Controllers\BillingController;
+use Controllers\NotesController;
 use App\Database;
 
 // Start a session if none exists
@@ -46,8 +47,9 @@ switch($action) {
         break;
 
     case 'notes':
-        // Notes case: Display a placeholder note
-        echo 'Petite note';
+        // Notes case: Display the form and notes
+        $notesController = new NotesController();
+        $notesController->displayFormAndNotes();
         break;
 
     case 'billing':
@@ -63,16 +65,18 @@ switch($action) {
         break;
 
     case 'register':
-        // Register case: Handle user registration and Google authentication
         $registerController = new RegisterController();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $registerController->userSave();
-        } elseif (isset($_GET['action']) && $_GET['action'] === 'googleAuth') {
-            $registerController->googleAuth();
         } else {
             $registerController->registerForm();
         }
-        break;        
+        break;
+        
+    case 'googleAuth':
+        $registerController = new RegisterController();
+        $registerController->googleAuth();
+        break;      
 
     case 'login':
         // Login case: Handle user login
