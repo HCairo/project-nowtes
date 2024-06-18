@@ -17,27 +17,46 @@ class BillingController {
         $userId = $_SESSION['user_id'] ?? null;
         if ($userId) {
             $this->billModel->retrieveSubscription($userId);
-            $this->billView->renderBillingType();
+            $billingPlans = $this->billModel->getBillingPlans();
+            $this->billView->renderBillingType($billingPlans);
         } else {
             echo 'User ID not found.';
         }
     }
 
-        /*
-     * Handle subscription creation.
-     * Add method description here.
-     */
-    public function createSubscription() {
-        // Add logic to handle subscription creation here.
-        // Example: $this->billModel->createSubscription();
+    public function createSubscription($planId) {
+        $userId = $_SESSION['user_id'] ?? null;
+        if ($userId) {
+            // Create subscription in your database
+            if ($this->billModel->createSubscription($userId, $planId)) {
+                // Optionally, create subscription in Stripe
+                // Replace 'customer_id' with actual Stripe customer ID
+                // $this->billModel->createStripeSubscription('customer_id', $planId);
+                
+                echo 'Subscription created successfully.';
+            } else {
+                echo 'Failed to create subscription.';
+            }
+        } else {
+            echo 'User ID not found.';
+        }
     }
 
-    /*
-     * Handle payment processing.
-     * Add method description here.
-     */
     public function processPayment() {
-        // Add logic to handle payment processing here.
-        // Example: $this->billModel->processPayment();
+        // Retrieve the token sent from the frontend
+        $token = $_POST['stripeToken'] ?? null;
+
+        if ($token) {
+            // Pass the token to your BillingModel to handle payment processing
+            $result = $this->billModel->processPayment($token);
+
+            if ($result) {
+                echo 'Payment processed successfully.';
+            } else {
+                echo 'Failed to process payment.';
+            }
+        } else {
+            echo 'Stripe token not found.';
+        }
     }
 }

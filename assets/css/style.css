@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap";
 * {
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
@@ -21,7 +21,6 @@ header {
   background-color: #2C5673;
   color: #E1EAF0;
 }
-
 header a {
   color: #E1EAF0;
   text-decoration: none;
@@ -30,12 +29,11 @@ header a {
   padding: 10px 20px;
   transition: background-color 0.3s ease;
 }
-
 header a:hover {
   background-color: #5D87A5;
 }
 
-.login-form-container, .register-form-container {
+.login-form-container {
   max-width: 600px;
   margin: 50px auto;
   padding: 40px;
@@ -44,23 +42,29 @@ header a:hover {
   border-radius: 8px;
 }
 
-.login-form h1, .register-form h1 {
+.register-form-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #E1EAF0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.login-form h1 {
   margin-bottom: 30px;
   color: #2C5673;
 }
-
-.login-form .form-group, .register-form .form-group {
+.login-form .form-group {
   margin-bottom: 20px;
 }
-
-.login-form label, .register-form label {
+.login-form label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
   color: #2C5673;
 }
-
-.login-form input, .register-form input {
+.login-form input {
   width: 100%;
   padding: 10px;
   border: 1px solid #5D87A5;
@@ -68,8 +72,58 @@ header a:hover {
   font-size: 16px;
   color: #2C5673;
 }
+.login-form button {
+  width: 100%;
+  padding: 15px;
+  background-color: #2C5673;
+  color: #E1EAF0;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.login-form button:hover {
+  background-color: #5D87A5;
+}
 
-.login-form button, .register-form button, .google {
+.register-form h1 {
+  margin-bottom: 30px;
+  color: #2C5673;
+}
+.register-form .form-group {
+  margin-bottom: 20px;
+}
+.register-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #2C5673;
+}
+.register-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #5D87A5;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #2C5673;
+}
+.register-form button {
+  width: 100%;
+  padding: 15px;
+  background-color: #2C5673;
+  color: #E1EAF0;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.register-form button:hover {
+  background-color: #5D87A5;
+}
+
+.google {
   width: 100%;
   padding: 15px;
   background-color: #2C5673;
@@ -81,10 +135,6 @@ header a:hover {
   transition: background-color 0.3s ease;
 }
 
-.login-form button:hover, .register-form button:hover {
-  background-color: #5D87A5;
-}
-
 .account-container {
   max-width: 600px;
   margin: 50px auto;
@@ -93,17 +143,14 @@ header a:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
 }
-
 .account-container h1 {
   margin-bottom: 30px;
   color: #2C5673;
 }
-
 .account-container p {
   margin-bottom: 20px;
   color: #2C5673;
 }
-
 .account-container button {
   padding: 10px 20px;
   background-color: #2C5673;
@@ -113,15 +160,9 @@ header a:hover {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
-account-container button:hover {
-  background-color: #5D87A5;
-}
-
 .account-container form {
   margin-bottom: 20px;
 }
-
 .account-container form input {
   width: 100%;
   padding: 10px;
@@ -131,10 +172,13 @@ account-container button:hover {
   font-size: 16px;
   color: #2C5673;
 }
-
 .account-container form button {
   width: auto;
   padding: 10px 20px;
+}
+
+account-container button:hover {
+  background-color: #5D87A5;
 }
 
 .task-list-container {
@@ -145,32 +189,29 @@ account-container button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
 }
-
 .task-list-container h1 {
   margin-bottom: 20px;
   color: #2C5673;
 }
-
 .task-list-container table {
   width: 100%;
   border-collapse: collapse;
 }
-
-.task-list-container th, .task-list-container td {
+.task-list-container th {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+  background-color: #2C5673;
+  color: #E1EAF0;
+}
+.task-list-container td {
   padding: 10px;
   border: 1px solid #ddd;
   text-align: left;
 }
-
-.task-list-container th {
-  background-color: #2C5673;
-  color: #E1EAF0;
-}
-
 .task-list-container tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-
 .task-list-container tr:hover {
   background-color: #ddd;
 }
@@ -180,39 +221,51 @@ account-container button:hover {
   display: inline-block;
   margin-right: 3%;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f4f4f4; /* Default background color */
+  border: 1px solid #5D87A5;
+  border-radius: 8px;
+  background-color: #E1EAF0;
 }
-
 .subscription-column:last-child {
   margin-right: 0;
 }
-
 .subscription-column h2 {
   text-align: center;
-  color: #333; /* Heading color */
+  color: #2C5673;
 }
-
 .subscription-column ul {
   list-style: none;
   padding: 0;
 }
-
 .subscription-column ul li {
   margin-bottom: 10px;
-  color: #555; /* List item color */
+  color: #2C5673;
 }
 
-/* Define different background colors for each column */
-.free {
-  background-color: #ffcd4a; /* Yellow */
+#selected-plan {
+  margin-top: 20px;
+  color: #2C5673;
 }
 
-.pro {
-  background-color: #48dbfb; /* Blue */
+#submit-button {
+  background-color: #2C5673;
+  color: #E1EAF0;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#submit-button:hover {
+  background-color: #5D87A5;
 }
 
-.business {
-  background-color: #ff6b6b; /* Red */
+#card-element {
+  border: 1px solid #5D87A5;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+#card-errors {
+  color: #ff6b6b;
 }/*# sourceMappingURL=style.css.map */
